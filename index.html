@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>옷 갈아입히기 게임</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .screen { display: none; }
+        .active { display: block; }
+        .character { width: 200px; height: 400px; margin: 20px auto; background-color: lightgray; }
+        .options img { width: 50px; cursor: pointer; margin: 5px; }
+    </style>
+</head>
+<body>
+    <!-- 인트로 화면 -->
+    <div id="introScreen" class="screen active">
+        <h1>옷 갈아입히기 게임</h1>
+        <button onclick="startGame()">시작하기</button>
+    </div>
+
+    <!-- 옷입히기 화면 -->
+    <div id="dressUpScreen" class="screen">
+        <div class="character" id="character"></div>
+        <div class="options">
+            <img src="shirt1.png" onclick="changeClothes('shirt1.png')">
+            <img src="shirt2.png" onclick="changeClothes('shirt2.png')">
+        </div>
+        <button onclick="finishGame()">완성</button>
+    </div>
+
+    <!-- 완성 화면 -->
+    <div id="completeScreen" class="screen">
+        <div class="character" id="finalCharacter"></div>
+        <button onclick="shareGame()">공유하기</button>
+        <button onclick="saveGame()">저장하기</button>
+    </div>
+
+    <script>
+        function startGame() {
+            document.getElementById('introScreen').classList.remove('active');
+            document.getElementById('dressUpScreen').classList.add('active');
+        }
+
+        function changeClothes(image) {
+            document.getElementById('character').style.backgroundImage = `url(${image})`;
+        }
+
+        function finishGame() {
+            document.getElementById('dressUpScreen').classList.remove('active');
+            document.getElementById('completeScreen').classList.add('active');
+            document.getElementById('finalCharacter').style.backgroundImage = document.getElementById('character').style.backgroundImage;
+        }
+
+        function shareGame() {
+            alert('공유 기능은 준비 중입니다!');
+        }
+
+        function saveGame() {
+            alert('저장 기능은 준비 중입니다!');
+        }
+    </script>
+</body>
+</html>
