@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>옷 갈아입히기 게임</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; background-image: url('assets/background.png'); background-size: cover; }
+        body { text-align: center; font-family: Arial, sans-serif; background-color: #CAF8FE; }
         .screen { display: none; }
         .active { display: block; }
         .character { width: 200px; height: 400px; margin: 20px auto; background-image: url('assets/base.png'); background-size: contain; background-repeat: no-repeat; position: relative; }
@@ -13,14 +13,15 @@
         #clothesLayer { z-index: 1; }
         #hatLayer { z-index: 2; }
         #faceLayer { z-index: 3; }
-        .options img { width: 50px; cursor: pointer; margin: 5px; }
+        .options img { width: 100px; cursor: pointer; margin: 5px; }
+        .button img { width: 150px; cursor: pointer; }
     </style>
 </head>
 <body>
     <!-- 인트로 화면 -->
     <div id="introScreen" class="screen active">
-        <h1>옷 갈아입히기 게임</h1>
-        <button onclick="startGame()">시작하기</button>
+        <img src="assets/title.png" alt="게임 제목">
+        <div class="button"><img src="assets/start.png" onclick="startGame()"></div>
     </div>
 
     <!-- 옷입히기 화면 -->
@@ -31,26 +32,26 @@
             <div id="faceLayer" class="layer"></div>
         </div>
         <div class="options">
-            <h3>모자</h3>
+            <img src="assets/hood.png" alt="모자">
             <img src="assets/hood_1.png" onclick="changeItem('hatLayer', 'assets/hood_1.png')">
             <img src="assets/hood_2.png" onclick="changeItem('hatLayer', 'assets/hood_2.png')">
             <img src="assets/hood_3.png" onclick="changeItem('hatLayer', 'assets/hood_3.png')">
             <img src="assets/hood_4.png" onclick="changeItem('hatLayer', 'assets/hood_4.png')">
             <img src="assets/hood_5.png" onclick="changeItem('hatLayer', 'assets/hood_5.png')">
-            <h3>얼굴</h3>
+            <img src="assets/face.png" alt="얼굴">
             <img src="assets/face_1.png" onclick="changeItem('faceLayer', 'assets/face_1.png')">
             <img src="assets/face_2.png" onclick="changeItem('faceLayer', 'assets/face_2.png')">
             <img src="assets/face_3.png" onclick="changeItem('faceLayer', 'assets/face_3.png')">
             <img src="assets/face_4.png" onclick="changeItem('faceLayer', 'assets/face_4.png')">
             <img src="assets/face_5.png" onclick="changeItem('faceLayer', 'assets/face_5.png')">
-            <h3>옷</h3>
+            <img src="assets/clothes.png" alt="옷">
             <img src="assets/clothes_1.png" onclick="changeItem('clothesLayer', 'assets/clothes_1.png')">
             <img src="assets/clothes_2.png" onclick="changeItem('clothesLayer', 'assets/clothes_2.png')">
             <img src="assets/clothes_3.png" onclick="changeItem('clothesLayer', 'assets/clothes_3.png')">
             <img src="assets/clothes_4.png" onclick="changeItem('clothesLayer', 'assets/clothes_4.png')">
             <img src="assets/clothes_5.png" onclick="changeItem('clothesLayer', 'assets/clothes_5.png')">
         </div>
-        <button onclick="finishGame()">완성</button>
+        <div class="button"><img src="assets/complete.png" onclick="finishGame()"></div>
     </div>
 
     <!-- 완성 화면 -->
@@ -60,9 +61,9 @@
             <div id="finalHatLayer" class="layer"></div>
             <div id="finalFaceLayer" class="layer"></div>
         </div>
-        <button onclick="shareGame()">공유하기</button>
-        <button onclick="saveGame()">저장하기</button>
-        <button onclick="restartGame()">다시하기</button>
+        <div class="button"><img src="assets/share.png" onclick="shareGame()"></div>
+        <div class="button"><img src="assets/download.png" onclick="saveGame()"></div>
+        <div class="button"><img src="assets/restart.png" onclick="restartGame()"></div>
     </div>
 
     <script>
