@@ -10,11 +10,13 @@
         .active { display: block; }
         .character { width: 200px; height: 400px; margin: 20px auto; background-image: url('assets/base.png'); background-size: contain; background-repeat: no-repeat; position: relative; }
         .layer { position: absolute; width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; }
-        #clothesLayer { z-index: 1; }
-        #hatLayer { z-index: 2; }
-        #faceLayer { z-index: 3; }
-        .options img { width: 100px; cursor: pointer; margin: 5px; }
-        .button img { width: 150px; cursor: pointer; }
+        #clothesLayer { z-index: 1; width: 90%; height: 90%; left: 5%; top: 5%; }
+        #hatLayer { z-index: 2; width: 80%; height: 80%; left: 10%; top: 0; }
+        #faceLayer { z-index: 3; width: 100%; height: 100%; }
+        .options img { width: 80px; cursor: pointer; margin: 5px; }
+        .button img { width: 120px; cursor: pointer; }
+        #introScreen img { width: 60%; max-width: 400px; }
+        .options label { font-size: 16px; font-weight: bold; display: block; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -32,19 +34,19 @@
             <div id="faceLayer" class="layer"></div>
         </div>
         <div class="options">
-            <img src="assets/hood.png" alt="모자">
+            <label>모자</label>
             <img src="assets/hood_1.png" onclick="changeItem('hatLayer', 'assets/hood_1.png')">
             <img src="assets/hood_2.png" onclick="changeItem('hatLayer', 'assets/hood_2.png')">
             <img src="assets/hood_3.png" onclick="changeItem('hatLayer', 'assets/hood_3.png')">
             <img src="assets/hood_4.png" onclick="changeItem('hatLayer', 'assets/hood_4.png')">
             <img src="assets/hood_5.png" onclick="changeItem('hatLayer', 'assets/hood_5.png')">
-            <img src="assets/face.png" alt="얼굴">
+            <label>얼굴</label>
             <img src="assets/face_1.png" onclick="changeItem('faceLayer', 'assets/face_1.png')">
             <img src="assets/face_2.png" onclick="changeItem('faceLayer', 'assets/face_2.png')">
             <img src="assets/face_3.png" onclick="changeItem('faceLayer', 'assets/face_3.png')">
             <img src="assets/face_4.png" onclick="changeItem('faceLayer', 'assets/face_4.png')">
             <img src="assets/face_5.png" onclick="changeItem('faceLayer', 'assets/face_5.png')">
-            <img src="assets/clothes.png" alt="옷">
+            <label>옷</label>
             <img src="assets/clothes_1.png" onclick="changeItem('clothesLayer', 'assets/clothes_1.png')">
             <img src="assets/clothes_2.png" onclick="changeItem('clothesLayer', 'assets/clothes_2.png')">
             <img src="assets/clothes_3.png" onclick="changeItem('clothesLayer', 'assets/clothes_3.png')">
@@ -53,52 +55,5 @@
         </div>
         <div class="button"><img src="assets/complete.png" onclick="finishGame()"></div>
     </div>
-
-    <!-- 완성 화면 -->
-    <div id="completeScreen" class="screen">
-        <div class="character">
-            <div id="finalClothesLayer" class="layer"></div>
-            <div id="finalHatLayer" class="layer"></div>
-            <div id="finalFaceLayer" class="layer"></div>
-        </div>
-        <div class="button"><img src="assets/share.png" onclick="shareGame()"></div>
-        <div class="button"><img src="assets/download.png" onclick="saveGame()"></div>
-        <div class="button"><img src="assets/restart.png" onclick="restartGame()"></div>
-    </div>
-
-    <script>
-        function startGame() {
-            document.getElementById('introScreen').classList.remove('active');
-            document.getElementById('dressUpScreen').classList.add('active');
-        }
-
-        function changeItem(layer, image) {
-            document.getElementById(layer).style.backgroundImage = `url(${image})`;
-        }
-
-        function finishGame() {
-            document.getElementById('dressUpScreen').classList.remove('active');
-            document.getElementById('completeScreen').classList.add('active');
-            document.getElementById('finalClothesLayer').style.backgroundImage = document.getElementById('clothesLayer').style.backgroundImage;
-            document.getElementById('finalHatLayer').style.backgroundImage = document.getElementById('hatLayer').style.backgroundImage;
-            document.getElementById('finalFaceLayer').style.backgroundImage = document.getElementById('faceLayer').style.backgroundImage;
-        }
-
-        function shareGame() {
-            alert('공유 기능은 준비 중입니다!');
-        }
-
-        function saveGame() {
-            alert('저장 기능은 준비 중입니다!');
-        }
-
-        function restartGame() {
-            document.getElementById('completeScreen').classList.remove('active');
-            document.getElementById('dressUpScreen').classList.add('active');
-            document.getElementById('clothesLayer').style.backgroundImage = '';
-            document.getElementById('hatLayer').style.backgroundImage = '';
-            document.getElementById('faceLayer').style.backgroundImage = '';
-        }
-    </script>
 </body>
 </html>
