@@ -11,8 +11,8 @@
         .character { width: 200px; height: 400px; margin: 20px auto; background-image: url('assets/base.png'); background-size: contain; background-repeat: no-repeat; position: relative; }
         .layer { position: absolute; width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; }
         #clothesLayer { z-index: 1; }
-        #faceLayer { z-index: 2; }
-        #hatLayer { z-index: 3; }
+        #hatLayer { z-index: 2; }
+        #faceLayer { z-index: 3; }
         .options img { width: 50px; cursor: pointer; margin: 5px; }
     </style>
 </head>
@@ -27,8 +27,8 @@
     <div id="dressUpScreen" class="screen">
         <div class="character">
             <div id="clothesLayer" class="layer"></div>
-            <div id="faceLayer" class="layer"></div>
             <div id="hatLayer" class="layer"></div>
+            <div id="faceLayer" class="layer"></div>
         </div>
         <div class="options">
             <h3>모자</h3>
@@ -57,11 +57,12 @@
     <div id="completeScreen" class="screen">
         <div class="character">
             <div id="finalClothesLayer" class="layer"></div>
-            <div id="finalFaceLayer" class="layer"></div>
             <div id="finalHatLayer" class="layer"></div>
+            <div id="finalFaceLayer" class="layer"></div>
         </div>
         <button onclick="shareGame()">공유하기</button>
         <button onclick="saveGame()">저장하기</button>
+        <button onclick="restartGame()">다시하기</button>
     </div>
 
     <script>
@@ -78,8 +79,8 @@
             document.getElementById('dressUpScreen').classList.remove('active');
             document.getElementById('completeScreen').classList.add('active');
             document.getElementById('finalClothesLayer').style.backgroundImage = document.getElementById('clothesLayer').style.backgroundImage;
-            document.getElementById('finalFaceLayer').style.backgroundImage = document.getElementById('faceLayer').style.backgroundImage;
             document.getElementById('finalHatLayer').style.backgroundImage = document.getElementById('hatLayer').style.backgroundImage;
+            document.getElementById('finalFaceLayer').style.backgroundImage = document.getElementById('faceLayer').style.backgroundImage;
         }
 
         function shareGame() {
@@ -88,6 +89,14 @@
 
         function saveGame() {
             alert('저장 기능은 준비 중입니다!');
+        }
+
+        function restartGame() {
+            document.getElementById('completeScreen').classList.remove('active');
+            document.getElementById('dressUpScreen').classList.add('active');
+            document.getElementById('clothesLayer').style.backgroundImage = '';
+            document.getElementById('hatLayer').style.backgroundImage = '';
+            document.getElementById('faceLayer').style.backgroundImage = '';
         }
     </script>
 </body>
