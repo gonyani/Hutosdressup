@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>옷 갈아입히기 게임</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; background-image: url('source_files/소스/배경.png'); background-size: cover; }
+        body { text-align: center; font-family: Arial, sans-serif; background-image: url('assets/background.png'); background-size: cover; }
         .screen { display: none; }
         .active { display: block; }
-        .character { width: 200px; height: 400px; margin: 20px auto; background-image: url('source_files/소스/기본.png'); background-size: contain; background-repeat: no-repeat; position: relative; }
+        .character { width: 200px; height: 400px; margin: 20px auto; background-image: url('assets/base.png'); background-size: contain; background-repeat: no-repeat; position: relative; }
         .layer { position: absolute; width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; }
         .options img { width: 50px; cursor: pointer; margin: 5px; }
     </style>
@@ -29,23 +29,23 @@
         </div>
         <div class="options">
             <h3>모자</h3>
-            <img src="source_files/소스/모자_1.png" onclick="changeItem('hatLayer', 'source_files/소스/모자_1.png')">
-            <img src="source_files/소스/모자_2.png" onclick="changeItem('hatLayer', 'source_files/소스/모자_2.png')">
-            <img src="source_files/소스/모자_3.png" onclick="changeItem('hatLayer', 'source_files/소스/모자_3.png')">
-            <img src="source_files/소스/모자_4.png" onclick="changeItem('hatLayer', 'source_files/소스/모자_4.png')">
-            <img src="source_files/소스/모자_5.png" onclick="changeItem('hatLayer', 'source_files/소스/모자_5.png')">
+            <img src="assets/hood_1.png" onclick="changeItem('hatLayer', 'assets/hood_1.png')">
+            <img src="assets/hood_2.png" onclick="changeItem('hatLayer', 'assets/hood_2.png')">
+            <img src="assets/hood_3.png" onclick="changeItem('hatLayer', 'assets/hood_3.png')">
+            <img src="assets/hood_4.png" onclick="changeItem('hatLayer', 'assets/hood_4.png')">
+            <img src="assets/hood_5.png" onclick="changeItem('hatLayer', 'assets/hood_5.png')">
             <h3>얼굴</h3>
-            <img src="source_files/소스/얼굴_1.png" onclick="changeItem('faceLayer', 'source_files/소스/얼굴_1.png')">
-            <img src="source_files/소스/얼굴_2.png" onclick="changeItem('faceLayer', 'source_files/소스/얼굴_2.png')">
-            <img src="source_files/소스/얼굴_3.png" onclick="changeItem('faceLayer', 'source_files/소스/얼굴_3.png')">
-            <img src="source_files/소스/얼굴_4.png" onclick="changeItem('faceLayer', 'source_files/소스/얼굴_4.png')">
-            <img src="source_files/소스/얼굴_5.png" onclick="changeItem('faceLayer', 'source_files/소스/얼굴_5.png')">
+            <img src="assets/face_1.png" onclick="changeItem('faceLayer', 'assets/face_1.png')">
+            <img src="assets/face_2.png" onclick="changeItem('faceLayer', 'assets/face_2.png')">
+            <img src="assets/face_3.png" onclick="changeItem('faceLayer', 'assets/face_3.png')">
+            <img src="assets/face_4.png" onclick="changeItem('faceLayer', 'assets/face_4.png')">
+            <img src="assets/face_5.png" onclick="changeItem('faceLayer', 'assets/face_5.png')">
             <h3>옷</h3>
-            <img src="source_files/소스/옷_1.png" onclick="changeItem('clothesLayer', 'source_files/소스/옷_1.png')">
-            <img src="source_files/소스/옷_2.png" onclick="changeItem('clothesLayer', 'source_files/소스/옷_2.png')">
-            <img src="source_files/소스/옷_3.png" onclick="changeItem('clothesLayer', 'source_files/소스/옷_3.png')">
-            <img src="source_files/소스/옷_4.png" onclick="changeItem('clothesLayer', 'source_files/소스/옷_4.png')">
-            <img src="source_files/소스/옷_5.png" onclick="changeItem('clothesLayer', 'source_files/소스/옷_5.png')">
+            <img src="assets/clothes_1.png" onclick="changeItem('clothesLayer', 'assets/clothes_1.png')">
+            <img src="assets/clothes_2.png" onclick="changeItem('clothesLayer', 'assets/clothes_2.png')">
+            <img src="assets/clothes_3.png" onclick="changeItem('clothesLayer', 'assets/clothes_3.png')">
+            <img src="assets/clothes_4.png" onclick="changeItem('clothesLayer', 'assets/clothes_4.png')">
+            <img src="assets/clothes_5.png" onclick="changeItem('clothesLayer', 'assets/clothes_5.png')">
         </div>
         <button onclick="finishGame()">완성</button>
     </div>
