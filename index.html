@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!DOCTYPE html><html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,36 +23,42 @@
     <div id="introScreen" class="screen active">
         <img src="assets/title.png" alt="게임 제목">
         <div class="button"><img src="assets/start.png" onclick="startGame()"></div>
+    </div><!-- 옷입히기 화면 -->
+<div id="dressUpScreen" class="screen">
+    <div class="character">
+        <div id="clothesLayer" class="layer"></div>
+        <div id="hatLayer" class="layer"></div>
+        <div id="faceLayer" class="layer"></div>
     </div>
+    <div class="options">
+        <label>모자</label>
+        <img src="assets/hood_1.png" onclick="changeItem('hatLayer', 'assets/hood_1.png')">
+        <img src="assets/hood_2.png" onclick="changeItem('hatLayer', 'assets/hood_2.png')">
+        <img src="assets/hood_3.png" onclick="changeItem('hatLayer', 'assets/hood_3.png')">
+        <img src="assets/hood_4.png" onclick="changeItem('hatLayer', 'assets/hood_4.png')">
+        <img src="assets/hood_5.png" onclick="changeItem('hatLayer', 'assets/hood_5.png')">
+        <label>얼굴</label>
+        <img src="assets/face_1.png" onclick="changeItem('faceLayer', 'assets/face_1.png')">
+        <img src="assets/face_2.png" onclick="changeItem('faceLayer', 'assets/face_2.png')">
+        <img src="assets/face_3.png" onclick="changeItem('faceLayer', 'assets/face_3.png')">
+        <img src="assets/face_4.png" onclick="changeItem('faceLayer', 'assets/face_4.png')">
+        <img src="assets/face_5.png" onclick="changeItem('faceLayer', 'assets/face_5.png')">
+        <label>옷</label>
+        <img src="assets/clothes_1.png" onclick="changeItem('clothesLayer', 'assets/clothes_1.png')">
+        <img src="assets/clothes_2.png" onclick="changeItem('clothesLayer', 'assets/clothes_2.png')">
+        <img src="assets/clothes_3.png" onclick="changeItem('clothesLayer', 'assets/clothes_3.png')">
+        <img src="assets/clothes_4.png" onclick="changeItem('clothesLayer', 'assets/clothes_4.png')">
+        <img src="assets/clothes_5.png" onclick="changeItem('clothesLayer', 'assets/clothes_5.png')">
+    </div>
+    <div class="button"><img src="assets/complete.png" onclick="finishGame()"></div>
+</div>
 
-    <!-- 옷입히기 화면 -->
-    <div id="dressUpScreen" class="screen">
-        <div class="character">
-            <div id="clothesLayer" class="layer"></div>
-            <div id="hatLayer" class="layer"></div>
-            <div id="faceLayer" class="layer"></div>
-        </div>
-        <div class="options">
-            <label>모자</label>
-            <img src="assets/hood_1.png" onclick="changeItem('hatLayer', 'assets/hood_1.png')">
-            <img src="assets/hood_2.png" onclick="changeItem('hatLayer', 'assets/hood_2.png')">
-            <img src="assets/hood_3.png" onclick="changeItem('hatLayer', 'assets/hood_3.png')">
-            <img src="assets/hood_4.png" onclick="changeItem('hatLayer', 'assets/hood_4.png')">
-            <img src="assets/hood_5.png" onclick="changeItem('hatLayer', 'assets/hood_5.png')">
-            <label>얼굴</label>
-            <img src="assets/face_1.png" onclick="changeItem('faceLayer', 'assets/face_1.png')">
-            <img src="assets/face_2.png" onclick="changeItem('faceLayer', 'assets/face_2.png')">
-            <img src="assets/face_3.png" onclick="changeItem('faceLayer', 'assets/face_3.png')">
-            <img src="assets/face_4.png" onclick="changeItem('faceLayer', 'assets/face_4.png')">
-            <img src="assets/face_5.png" onclick="changeItem('faceLayer', 'assets/face_5.png')">
-            <label>옷</label>
-            <img src="assets/clothes_1.png" onclick="changeItem('clothesLayer', 'assets/clothes_1.png')">
-            <img src="assets/clothes_2.png" onclick="changeItem('clothesLayer', 'assets/clothes_2.png')">
-            <img src="assets/clothes_3.png" onclick="changeItem('clothesLayer', 'assets/clothes_3.png')">
-            <img src="assets/clothes_4.png" onclick="changeItem('clothesLayer', 'assets/clothes_4.png')">
-            <img src="assets/clothes_5.png" onclick="changeItem('clothesLayer', 'assets/clothes_5.png')">
-        </div>
-        <div class="button"><img src="assets/complete.png" onclick="finishGame()"></div>
-    </div>
+<script>
+    function startGame() {
+        document.getElementById('introScreen').classList.remove('active');
+        document.getElementById('dressUpScreen').classList.add('active');
+    }
+</script>
+
 </body>
 </html>
