@@ -15,7 +15,7 @@
         .options img { width: 80px; cursor: pointer; margin: 5px; }
         .button img { width: 120px; cursor: pointer; }
         #introScreen img { width: 60%; max-width: 400px; }
-        .options label { font-size: 16px; font-weight: bold; display: block; margin-top: 10px; }
+        .option-title { width: 150px; margin: 10px auto; }
     </style>
 </head>
 <body>
@@ -31,19 +31,19 @@
         <div id="faceLayer" class="layer"></div>
     </div>
     <div class="options">
-        <label>모자</label>
+        <img src="assets/hood.png" class="option-title">
         <img src="assets/hood_1.png" onclick="changeItem('hatLayer', 'assets/hood_1.png')">
         <img src="assets/hood_2.png" onclick="changeItem('hatLayer', 'assets/hood_2.png')">
         <img src="assets/hood_3.png" onclick="changeItem('hatLayer', 'assets/hood_3.png')">
         <img src="assets/hood_4.png" onclick="changeItem('hatLayer', 'assets/hood_4.png')">
         <img src="assets/hood_5.png" onclick="changeItem('hatLayer', 'assets/hood_5.png')">
-        <label>얼굴</label>
+        <img src="assets/face.png" class="option-title">
         <img src="assets/face_1.png" onclick="changeItem('faceLayer', 'assets/face_1.png')">
         <img src="assets/face_2.png" onclick="changeItem('faceLayer', 'assets/face_2.png')">
         <img src="assets/face_3.png" onclick="changeItem('faceLayer', 'assets/face_3.png')">
         <img src="assets/face_4.png" onclick="changeItem('faceLayer', 'assets/face_4.png')">
         <img src="assets/face_5.png" onclick="changeItem('faceLayer', 'assets/face_5.png')">
-        <label>옷</label>
+        <img src="assets/clothes.png" class="option-title">
         <img src="assets/clothes_1.png" onclick="changeItem('clothesLayer', 'assets/clothes_1.png')">
         <img src="assets/clothes_2.png" onclick="changeItem('clothesLayer', 'assets/clothes_2.png')">
         <img src="assets/clothes_3.png" onclick="changeItem('clothesLayer', 'assets/clothes_3.png')">
@@ -57,6 +57,9 @@
     function startGame() {
         document.getElementById('introScreen').classList.remove('active');
         document.getElementById('dressUpScreen').classList.add('active');
+    }
+    function changeItem(layerId, imageUrl) {
+        document.getElementById(layerId).style.backgroundImage = `url(${imageUrl})`;
     }
 </script>
 
