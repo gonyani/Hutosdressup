@@ -9,7 +9,8 @@
         .screen { display: none; }
         .active { display: block; }
         .character-container { display: flex; justify-content: center; align-items: center; height: 400px; position: relative; }
-        .character { width: 250px; height: 400px; background-image: url('assets/base.png'); background-size: contain; background-repeat: no-repeat; position: relative; }
+        .character { width: 250px; height: 400px; position: relative; }
+        .base { position: absolute; width: 100%; height: 100%; background-image: url('assets/base.png'); background-size: contain; background-repeat: no-repeat; background-position: center; z-index: 0; }
         .layer { position: absolute; width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; background-position: center; }
         #clothesLayer { z-index: 1; }
         #hatLayer { z-index: 2; }
@@ -17,7 +18,7 @@
         .options img { width: 70px; cursor: pointer; margin: 5px; }
         .button img { width: 120px; cursor: pointer; }
         #introScreen img { width: 60%; max-width: 400px; }
-        .option-title { width: 100px; margin: 5px auto; display: block; }
+        .option-title { width: 80px; margin: 5px auto; display: block; }
     </style>
 </head>
 <body>
@@ -31,6 +32,7 @@
     <div id="dressUpScreen" class="screen">
         <div class="character-container">
             <div class="character">
+                <div class="base"></div>
                 <div id="clothesLayer" class="layer"></div>
                 <div id="hatLayer" class="layer"></div>
                 <div id="faceLayer" class="layer"></div>
@@ -59,6 +61,20 @@
         <div class="button"><img src="assets/complete.png" onclick="finishGame()"></div>
     </div>
 
+    <!-- 완성 화면 -->
+    <div id="completeScreen" class="screen">
+        <h2>완성된 캐릭터</h2>
+        <div class="character-container">
+            <div class="character">
+                <div class="base"></div>
+                <div id="finalClothesLayer" class="layer"></div>
+                <div id="finalHatLayer" class="layer"></div>
+                <div id="finalFaceLayer" class="layer"></div>
+            </div>
+        </div>
+        <div class="button"><img src="assets/restart.png" onclick="restartGame()"></div>
+    </div>
+
     <script>
         function startGame() {
             document.getElementById('introScreen').classList.remove('active');
@@ -68,7 +84,14 @@
             document.getElementById(layerId).style.backgroundImage = `url(${imageUrl})`;
         }
         function finishGame() {
-            alert("캐릭터 꾸미기가 완료되었습니다!");
+            document.getElementById('dressUpScreen').classList.remove('active');
+            document.getElementById('completeScreen').classList.add('active');
+            document.getElementById('finalClothesLayer').style.backgroundImage = document.getElementById('clothesLayer').style.backgroundImage;
+            document.getElementById('finalHatLayer').style.backgroundImage = document.getElementById('hatLayer').style.backgroundImage;
+            document.getElementById('finalFaceLayer').style.backgroundImage = document.getElementById('faceLayer').style.backgroundImage;
+        }
+        function restartGame() {
+            location.reload();
         }
     </script>
 </body>
