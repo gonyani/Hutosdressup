@@ -18,7 +18,7 @@
         .options img { width: 70px; cursor: pointer; margin: 5px; }
         .button img { width: 120px; cursor: pointer; }
         #introScreen img { width: 60%; max-width: 400px; }
-        .option-title { width: 50px; margin: 5px auto; display: block; }
+        .option-title { width: 70px; margin: 5px auto; display: block; }
     </style>
 </head>
 <body>
@@ -63,7 +63,6 @@
 
     <!-- 완성 화면 -->
     <div id="completeScreen" class="screen">
-        <h2>완성된 캐릭터</h2>
         <div class="character-container">
             <div class="character">
                 <div class="base"></div>
@@ -72,6 +71,7 @@
                 <div id="finalFaceLayer" class="layer"></div>
             </div>
         </div>
+        <div class="button"><img src="assets/share.png" onclick="shareCharacter()"></div>
         <div class="button"><img src="assets/restart.png" onclick="restartGame()"></div>
     </div>
 
@@ -92,6 +92,9 @@
         }
         function restartGame() {
             location.reload();
+        }
+        function shareCharacter() {
+            alert('공유하기 기능은 아직 구현되지 않았습니다!');
         }
     </script>
 </body>
