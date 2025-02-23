@@ -1,126 +1,79 @@
+// index.html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>옷 갈아입히기 게임</title>
+    <title>후토스 옷입히기</title>
     <style>
         body {
-            background-color: #CAF8FE;
             text-align: center;
+            background-color: #CAF8FE;
             font-family: Arial, sans-serif;
-            margin: 0;
         }
         .screen {
             display: none;
-            width: 100vw;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
-        .active {
-            display: flex;
-        }
-        .character-area {
-            position: relative;
-            width: 300px;
-            height: 400px;
-        }
-        .character-area img {
-            position: absolute;
-            width: 100%;
-        }
-        .option-group img {
-            width: 120px;
-            cursor: pointer;
-        }
-        button {
-            background: none;
-            border: none;
-            cursor: pointer;
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div id="intro-screen" class="screen active">
-        <img src="assets/title.png">
-        <button id="start-button"><img src="assets/start.png"></button>
+    <div id="app">
+        <div id="start-screen" class="screen">
+            <img src="images/title.png" alt="Title" class="title">
+            <img src="images/main.png" alt="Main" class="main">
+            <button id="start-btn">
+                <img src="images/start.png" alt="Start">
+            </button>
+        </div>
+        <div id="customize-screen" class="screen hidden">
+            <div id="character"></div>
+            <div id="buttons"></div>
+            <div id="items"></div>
+            <button id="complete-btn">
+                <img src="images/complete.png" alt="Complete">
+            </button>
+        </div>
+        <div id="complete-screen" class="screen hidden">
+            <div id="final-character"></div>
+            <button id="download-btn">
+                <img src="images/download.png" alt="Download">
+            </button>
+            <button id="share-btn">
+                <img src="images/share.png" alt="Share">
+            </button>
+            <button id="restart-btn">
+                <img src="images/restart.png" alt="Restart">
+            </button>
+        </div>
     </div>
-
-    <div id="dressup-screen" class="screen">
-        <div class="character-area">
-            <img id="base" src="assets/base.png">
-            <img id="clothes" src="">
-            <img id="hat" src="">
-            <img id="face" src="">
-        </div>
-        <div class="option-group">
-            <img src="assets/hood.png">
-            <div id="hat-options"></div>
-        </div>
-        <div class="option-group">
-            <img src="assets/face.png">
-            <div id="face-options"></div>
-        </div>
-        <div class="option-group">
-            <img src="assets/clothes.png">
-            <div id="clothes-options"></div>
-        </div>
-        <button id="complete-button"><img src="assets/complete.png"></button>
-    </div>
-
-    <div id="result-screen" class="screen">
-        <div class="character-area">
-            <img id="result-base" src="assets/base.png">
-            <img id="result-clothes" src="">
-            <img id="result-hat" src="">
-            <img id="result-face" src="">
-        </div>
-        <button id="share-button"><img src="assets/share.png"></button>
-        <button id="download-button"><img src="assets/download.png"></button>
-        <button id="restart-button"><img src="assets/restart.png"></button>
-    </div>
-
     <script>
-        function showScreen(id) {
-            document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-        }
-
-        document.getElementById("start-button").addEventListener("click", function() {
-            showScreen("dressup-screen");
+        document.addEventListener("DOMContentLoaded", function() {
+            const startBtn = document.getElementById("start-btn");
+            const completeBtn = document.getElementById("complete-btn");
+            const restartBtn = document.getElementById("restart-btn");
+            
+            const startScreen = document.getElementById("start-screen");
+            const customizeScreen = document.getElementById("customize-screen");
+            const completeScreen = document.getElementById("complete-screen");
+            
+            startBtn.addEventListener("click", function() {
+                startScreen.classList.add("hidden");
+                customizeScreen.classList.remove("hidden");
+            });
+    
+            completeBtn.addEventListener("click", function() {
+                customizeScreen.classList.add("hidden");
+                completeScreen.classList.remove("hidden");
+            });
+    
+            restartBtn.addEventListener("click", function() {
+                completeScreen.classList.add("hidden");
+                customizeScreen.classList.remove("hidden");
+            });
         });
-
-        document.getElementById("complete-button").addEventListener("click", function() {
-            showScreen("result-screen");
-            document.getElementById("result-clothes").src = document.getElementById("clothes").src;
-            document.getElementById("result-hat").src = document.getElementById("hat").src;
-            document.getElementById("result-face").src = document.getElementById("face").src;
-        });
-
-        document.getElementById("restart-button").addEventListener("click", function() {
-            showScreen("dressup-screen");
-        });
-
-        function addOptions(category, folder, count) {
-            const container = document.getElementById(`${category}-options`);
-            for (let i = 1; i <= count; i++) {
-                let img = document.createElement("img");
-                img.src = `assets/${folder}_${i}.png`;
-                img.addEventListener("click", function() {
-                    document.getElementById(category).src = img.src;
-                });
-                container.appendChild(img);
-            }
-        }
-
-        addOptions("hat", "hood", 5);
-        addOptions("face", "face", 5);
-        addOptions("clothes", "clothes", 5);
     </script>
 </body>
 </html>
