@@ -4,81 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>후토스 옷입히기</title>
-    <style>
-        body {
-            text-align: center;
-            background-color: #CAF8FE;
-            font-family: Arial, sans-serif;
-        }
-        .screen {
-            display: none;
-        }
-        .active {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div id="app">
-        <div id="start-screen" class="screen active">
-            <img src="assets/title.png" alt="Title" class="title">
-            <img src="assets/main.png" alt="Main" class="main">
-            <button id="start-btn">
-                <img src="assets/button/start.png" alt="Start">
-            </button>
-        </div>
-        <div id="customize-screen" class="screen">
-            <div id="character"></div>
-            <div id="buttons"></div>
-            <div id="items"></div>
-            <button id="complete-btn">
-                <img src="assets/button/complete.png" alt="Complete">
-            </button>
-        </div>
-        <div id="complete-screen" class="screen">
-            <div id="final-character"></div>
-            <button id="download-btn">
-                <img src="assets/button/download.png" alt="Download">
-            </button>
-            <button id="share-btn">
-                <img src="assets/button/share.png" alt="Share">
-            </button>
-            <button id="restart-btn">
-                <img src="assets/button/restart.png" alt="Restart">
-            </button>
-        </div>
+    <div id="start-screen" class="screen">
+        <img src="assets/title.png" alt="게임 제목" class="title">
+        <img src="assets/main.png" alt="메인 이미지" class="main-image">
+        <button id="start-btn"><img src="assets/start.png" alt="시작하기"></button>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const startBtn = document.getElementById("start-btn");
-            const completeBtn = document.getElementById("complete-btn");
-            const restartBtn = document.getElementById("restart-btn");
-            
-            const startScreen = document.getElementById("start-screen");
-            const customizeScreen = document.getElementById("customize-screen");
-            const completeScreen = document.getElementById("complete-screen");
-            
-            startBtn.addEventListener("click", function() {
-                startScreen.classList.remove("active");
-                startScreen.classList.add("screen");
-                customizeScreen.classList.remove("screen");
-                customizeScreen.classList.add("active");
-            });
-    
-            completeBtn.addEventListener("click", function() {
-                customizeScreen.classList.remove("active");
-                customizeScreen.classList.add("screen");
-                completeScreen.classList.remove("screen");
-                completeScreen.classList.add("active");
-            });
-    
-            restartBtn.addEventListener("click", function() {
-                completeScreen.classList.remove("active");
-                completeScreen.classList.add("screen");
-                customizeScreen.classList.remove("screen");
-                customizeScreen.classList.add("active");
-            });
-        });
-    </script>
+
+    <div id="dressup-screen" class="screen hidden">
+        <div id="character-preview"></div>
+        <div id="menu">
+            <button class="menu-btn" data-category="face"><img src="assets/face.png"></button>
+            <button class="menu-btn" data-category="hood"><img src="assets/hood.png"></button>
+            <button class="menu-btn" data-category="clothes"><img src="assets/clothes.png"></button>
+            <button class="menu-btn" data-category="accessory"><img src="assets/accessory.png"></button>
+        </div>
+        <div id="items"></div>
+        <button id="complete-btn"><img src="assets/complete.png" alt="완성"></button>
+    </div>
+
+    <div id="result-screen" class="screen hidden">
+        <div id="final-character"></div>
+        <button id="restart-btn"><img src="assets/restart.png" alt="다시하기"></button>
+    </div>
 </body>
 </html>
