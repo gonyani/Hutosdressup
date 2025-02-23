@@ -9,18 +9,24 @@
             background-color: #CAF8FE;
             text-align: center;
             font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
         }
 
-        .hidden {
+        .screen {
             display: none;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
-        #intro-screen, #dressup-screen, #result-screen {
+        .active {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
         }
 
         .character-area {
@@ -89,7 +95,7 @@
 </head>
 <body>
     <!-- 인트로 화면 -->
-    <div id="intro-screen">
+    <div id="intro-screen" class="screen active">
         <img src="assets/title.png" class="title">
         <button id="start-button">
             <img src="assets/start.png">
@@ -97,7 +103,7 @@
     </div>
 
     <!-- 옷 입히기 화면 -->
-    <div id="dressup-screen" class="hidden">
+    <div id="dressup-screen" class="screen">
         <div class="character-area">
             <img id="background" src="assets/background.png">
             <img id="base" src="assets/base.png">
@@ -125,7 +131,7 @@
     </div>
 
     <!-- 결과 화면 -->
-    <div id="result-screen" class="hidden">
+    <div id="result-screen" class="screen">
         <div class="character-area">
             <img id="result-background" src="assets/background.png">
             <img id="result-base" src="assets/base.png">
@@ -147,14 +153,19 @@
     </div>
 
     <script>
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+        }
+
         document.getElementById("start-button").addEventListener("click", function() {
-            document.getElementById("intro-screen").classList.add("hidden");
-            document.getElementById("dressup-screen").classList.remove("hidden");
+            showScreen("dressup-screen");
         });
 
         document.getElementById("complete-button").addEventListener("click", function() {
-            document.getElementById("dressup-screen").classList.add("hidden");
-            document.getElementById("result-screen").classList.remove("hidden");
+            showScreen("result-screen");
 
             document.getElementById("result-clothes").src = document.getElementById("clothes").src;
             document.getElementById("result-hat").src = document.getElementById("hat").src;
@@ -162,8 +173,7 @@
         });
 
         document.getElementById("restart-button").addEventListener("click", function() {
-            document.getElementById("result-screen").classList.add("hidden");
-            document.getElementById("dressup-screen").classList.remove("hidden");
+            showScreen("dressup-screen");
 
             document.getElementById("clothes").src = "";
             document.getElementById("hat").src = "";
