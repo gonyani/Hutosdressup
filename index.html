@@ -9,26 +9,26 @@
 </head>
 <body>
     <div id="start-screen" class="screen">
-        <img src="assets/title.png" alt="게임 제목" class="title" style="width: 50%;">
-        <img src="assets/main.png" alt="메인 이미지" class="main-image" style="width: 60%;">
-        <button id="start-btn"><img src="assets/start.png" alt="시작하기" style="width: 30%;"></button>
+        <img src="assets/title.png" alt="게임 제목" class="title" style="width: 40%;">
+        <img src="assets/main.png" alt="메인 이미지" class="main-image" style="width: 50%;">
+        <button id="start-btn" class="image-button"><img src="assets/start.png" alt="시작하기"></button>
     </div>
 
     <div id="dressup-screen" class="screen hidden">
         <div id="character-preview"></div>
         <div id="menu">
-            <button class="menu-btn" data-category="face"><img src="assets/face.png"></button>
-            <button class="menu-btn" data-category="hood"><img src="assets/hood.png"></button>
-            <button class="menu-btn" data-category="clothes"><img src="assets/clothes.png"></button>
-            <button class="menu-btn" data-category="accessory"><img src="assets/accessory.png"></button>
+            <button class="menu-btn" data-category="face" class="image-button"><img src="assets/face.png"></button>
+            <button class="menu-btn" data-category="hood" class="image-button"><img src="assets/hood.png"></button>
+            <button class="menu-btn" data-category="clothes" class="image-button"><img src="assets/clothes.png"></button>
+            <button class="menu-btn" data-category="accessory" class="image-button"><img src="assets/accessory.png"></button>
         </div>
         <div id="items"></div>
-        <button id="complete-btn"><img src="assets/complete.png" alt="완성"></button>
+        <button id="complete-btn" class="image-button"><img src="assets/complete.png" alt="완성"></button>
     </div>
 
     <div id="result-screen" class="screen hidden">
         <div id="final-character"></div>
-        <button id="restart-btn"><img src="assets/restart.png" alt="다시하기"></button>
+        <button id="restart-btn" class="image-button"><img src="assets/restart.png" alt="다시하기"></button>
     </div>
 </body>
 </html>
