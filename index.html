@@ -10,154 +10,85 @@
             text-align: center;
             font-family: Arial, sans-serif;
             margin: 0;
-            overflow: hidden;
         }
-
         .screen {
             display: none;
             width: 100vw;
             height: 100vh;
-            position: absolute;
-            top: 0;
-            left: 0;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
-
         .active {
             display: flex;
         }
-
         .character-area {
             position: relative;
             width: 300px;
             height: 400px;
         }
-
         .character-area img {
             position: absolute;
             width: 100%;
         }
-
-        .layer {
-            top: 0;
-            left: 0;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .option-group {
-            text-align: center;
-            margin: 10px 0;
-        }
-
-        .option-title {
+        .option-group img {
             width: 120px;
-            height: auto;
-        }
-
-        .clothes-title {
-            width: 120px;
-            height: auto;
-        }
-
-        .option-list {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 5px;
-        }
-
-        .option-list img {
-            width: 50px;
-            height: auto;
             cursor: pointer;
         }
-
         button {
             background: none;
             border: none;
             cursor: pointer;
-            margin-top: 20px;
-        }
-
-        button img {
-            width: 150px;
-            height: auto;
         }
     </style>
 </head>
 <body>
-    <!-- 인트로 화면 -->
     <div id="intro-screen" class="screen active">
-        <img src="assets/title.png" class="title">
-        <button id="start-button">
-            <img src="assets/start.png">
-        </button>
+        <img src="assets/title.png">
+        <button id="start-button"><img src="assets/start.png"></button>
     </div>
 
-    <!-- 옷 입히기 화면 -->
     <div id="dressup-screen" class="screen">
         <div class="character-area">
-            <img id="background" src="assets/background.png">
             <img id="base" src="assets/base.png">
-            <img id="clothes" class="layer" src="">
-            <img id="hat" class="layer" src="">
-            <img id="face" class="layer" src="">
+            <img id="clothes" src="">
+            <img id="hat" src="">
+            <img id="face" src="">
         </div>
-        <div class="options">
-            <div class="option-group">
-                <img src="assets/hood.png" class="option-title">
-                <div id="hat-options" class="option-list"></div>
-            </div>
-            <div class="option-group">
-                <img src="assets/face.png" class="option-title">
-                <div id="face-options" class="option-list"></div>
-            </div>
-            <div class="option-group">
-                <img src="assets/clothes.png" class="option-title clothes-title">
-                <div id="clothes-options" class="option-list"></div>
-            </div>
+        <div class="option-group">
+            <img src="assets/hood.png">
+            <div id="hat-options"></div>
         </div>
-        <button id="complete-button">
-            <img src="assets/complete.png">
-        </button>
+        <div class="option-group">
+            <img src="assets/face.png">
+            <div id="face-options"></div>
+        </div>
+        <div class="option-group">
+            <img src="assets/clothes.png">
+            <div id="clothes-options"></div>
+        </div>
+        <button id="complete-button"><img src="assets/complete.png"></button>
     </div>
 
-    <!-- 결과 화면 -->
     <div id="result-screen" class="screen">
         <div class="character-area">
-            <img id="result-background" src="assets/background.png">
             <img id="result-base" src="assets/base.png">
-            <img id="result-clothes" class="layer" src="">
-            <img id="result-hat" class="layer" src="">
-            <img id="result-face" class="layer" src="">
+            <img id="result-clothes" src="">
+            <img id="result-hat" src="">
+            <img id="result-face" src="">
         </div>
-        <div class="buttons">
-            <button id="share-button">
-                <img src="assets/share.png">
-            </button>
-            <button id="download-button">
-                <img src="assets/download.png">
-            </button>
-            <button id="restart-button">
-                <img src="assets/restart.png">
-            </button>
-        </div>
+        <button id="share-button"><img src="assets/share.png"></button>
+        <button id="download-button"><img src="assets/download.png"></button>
+        <button id="restart-button"><img src="assets/restart.png"></button>
     </div>
 
     <script>
-        function showScreen(screenId) {
-            document.querySelectorAll('.screen').forEach(screen => {
-                screen.classList.remove('active');
-            });
-            document.getElementById(screenId).classList.add('active');
+        function showScreen(id) {
+            document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
         }
 
         document.getElementById("start-button").addEventListener("click", function() {
@@ -166,7 +97,6 @@
 
         document.getElementById("complete-button").addEventListener("click", function() {
             showScreen("result-screen");
-
             document.getElementById("result-clothes").src = document.getElementById("clothes").src;
             document.getElementById("result-hat").src = document.getElementById("hat").src;
             document.getElementById("result-face").src = document.getElementById("face").src;
@@ -174,10 +104,6 @@
 
         document.getElementById("restart-button").addEventListener("click", function() {
             showScreen("dressup-screen");
-
-            document.getElementById("clothes").src = "";
-            document.getElementById("hat").src = "";
-            document.getElementById("face").src = "";
         });
 
         function addOptions(category, folder, count) {
