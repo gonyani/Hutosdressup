@@ -1,38 +1,34 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #CAF8FE;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후토스 옷입히기</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div id="start-screen" class="screen">
+        <img src="assets/title.png" alt="게임 제목" class="title" style="width: 50%;">
+        <img src="assets/main.png" alt="메인 이미지" class="main-image" style="width: 60%;">
+        <button id="start-btn"><img src="assets/start.png" alt="시작하기" style="width: 30%;"></button>
+    </div>
 
-.screen {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
+    <div id="dressup-screen" class="screen hidden">
+        <div id="character-preview"></div>
+        <div id="menu">
+            <button class="menu-btn" data-category="face"><img src="assets/face.png"></button>
+            <button class="menu-btn" data-category="hood"><img src="assets/hood.png"></button>
+            <button class="menu-btn" data-category="clothes"><img src="assets/clothes.png"></button>
+            <button class="menu-btn" data-category="accessory"><img src="assets/accessory.png"></button>
+        </div>
+        <div id="items"></div>
+        <button id="complete-btn"><img src="assets/complete.png" alt="완성"></button>
+    </div>
 
-.screen img {
-    max-width: 100%;
-}
-
-.hidden {
-    display: none;
-}
-
-#start-screen {
-    display: flex;
-}
-
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-}
-
-button img {
-    width: 100px;
-}
+    <div id="result-screen" class="screen hidden">
+        <div id="final-character"></div>
+        <button id="restart-btn"><img src="assets/restart.png" alt="다시하기"></button>
+    </div>
+</body>
+</html>
