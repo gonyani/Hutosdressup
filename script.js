@@ -19,22 +19,26 @@ document.addEventListener("DOMContentLoaded", function () {
         accessory: ""
     };
 
+    // 시작하기 버튼 클릭 시 꾸미기 화면으로 이동
     startBtn.addEventListener("click", () => {
         startScreen.classList.add("hidden");
         dressupScreen.classList.remove("hidden");
     });
 
+    // 완성 버튼 클릭 시 완성 화면으로 이동
     completeBtn.addEventListener("click", () => {
         dressupScreen.classList.add("hidden");
         resultScreen.classList.remove("hidden");
         finalCharacter.innerHTML = characterPreview.innerHTML;
     });
 
+    // 다시하기 버튼 클릭 시 꾸미기 화면으로 이동
     restartBtn.addEventListener("click", () => {
         resultScreen.classList.add("hidden");
         dressupScreen.classList.remove("hidden");
     });
 
+    // 카테고리 버튼 클릭 시 해당 아이템 목록 표시
     menuButtons.forEach(button => {
         button.addEventListener("click", () => {
             const category = button.dataset.category;
@@ -52,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // 캐릭터 화면에 선택한 아이템 반영
     function updateCharacter() {
         characterPreview.innerHTML = "";
         for (let key in characterState) {
